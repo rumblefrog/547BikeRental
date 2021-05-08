@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Return Bike</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css" integrity="sha256-O8SsQwDg1R10WnKJNyYgd9J3rlom+YSVcGbEF5RmfFk=" crossorigin="anonymous">
+    </head>
+
+    <body>
+         <section class="section" style="margin-top:30vh;">
+            <div class="container mt-6">
+                <div class="columns is-centered">
+                    <div class="column is-5 has-text-centered">
+                        <h1 class="title">
+                            Welcome {{ username }}
+                        </h1>
+
+                        {{#isRenting}}
+                             <form method="post">
+                                <label class="label">Enter Rental Duration</label>
+
+                                <div class="field has-addons is-horizontal">
+                                    <div class="field-body">
+                                        <div class="field has-addons">
+                                             <div class="control is-expanded">
+                                                <input class="input" type="number" placeholder="Duration" name="duration" required>
+                                            </div>
+                                            <div class="control">
+                                                <span class="select">
+                                                    <select name="duration_type" required>
+                                                        <option value="hour">Hours</option>
+                                                        <option value="day">Days</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <div class="control">
+                                                <input class="button is-primary is-fullwidth" type="submit" value="Rent" name="rent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        {{/isRenting}}
+
+                        {{^isRenting}}
+                            <h1 class="title">
+                                You are currently renting a bike with {{ duration }} minutes left
+                            </h1>
+                        {{/isRenting}}
+                    </div>
+                </div>
+
+                <div class="columns is-centered">
+                    <div class="column is-2">
+                        <a href="/logout" class="button is-info is-fullwidth">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

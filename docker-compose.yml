@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+  nginx:
+    image: nginx:alpine
+  mariadb:
+    image: mariadb:latest
+    restart: unless-stopped
+    volumes:
+      - bike_rental:/var/lib/db
+    environment:
+      MYSQL_DATABASE: bike_rental
+      MYSQL_ROOT_PASSWORD: fishy
+    
+volumes:
+  bike_rental:

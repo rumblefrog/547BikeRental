@@ -6,8 +6,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-  nginx:
-    image: nginx:alpine
   mariadb:
     image: mariadb:latest
     restart: unless-stopped

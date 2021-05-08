@@ -69,16 +69,21 @@ export default class Rental {
         );
     }
 
-    static async endRental(rental_id: number, user_id: number) {
+    /**
+     * Used by hardware scanner to return authenticated bikes.
+     * 
+     * @param bike_id Bike inventory ID
+     */
+    static async endRental(bike_id: number) {
         await pool.execute(
             `
                 UPDATE rentals
                 SET
                     rental_end = CURRENT_TIMESTAMP
                 WHERE
-                    id = ? AND user_id = ?
+                    bike_id = ? AND rental_end IS NULL
             `,
-            [ rental_id, user_id ],
+            [ bike_id ],
         );
     }
 }

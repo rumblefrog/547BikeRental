@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { to } from 'await-to-js';
 
+import Rental from '../models/Rental';
 import Inventory from '../models/Inventory';
 
 import { RegisterBike, ReturnBike } from '../models/API';
@@ -15,6 +16,8 @@ export default class API {
     }
 
     public static async return_bike(req: Request, res: Response) {
+        let payload: ReturnBike = req.body;
 
+        
     }
 }

@@ -14,16 +14,16 @@ CREATE TABLE rentals (
     duration INT UNSIGNED NOT NULL,
 
     -- Time it in which the rental started
-    takeout_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    rental_start TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     -- Time it in which rental was returned/completed.
     -- Null if never returned.
-    returned_time TIMESTAMP NULL,
+    rental_end TIMESTAMP NULL,
 
     FOREIGN KEY (`user_id`) REFERENCES users(`id`) ON DELETE CASCADE,
     FOREIGN KEY (`bike_id`) REFERENCES inventory(`id`) ON DELETE CASCADE,
 
     PRIMARY KEY(`id`),
-    INDEX(`takeout_time`),
-    INDEX(`returned_time`)
+    INDEX(`rental_start`),
+    INDEX(`rental_end`)
 );

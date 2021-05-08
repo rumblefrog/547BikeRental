@@ -1,6 +1,8 @@
 CREATE TABLE inventory (
     -- Bike inventory ID
-    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT UNSIGNED NOT NULL,
+
+    public_key TEXT NOT NULL,
 
     cost INT UNSIGNED NOT NULL,
 
@@ -9,7 +11,7 @@ CREATE TABLE inventory (
     -- Model of the bike, color, size
     description TEXT NOT NULL,
     
-    creation_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY(`id`)
 );

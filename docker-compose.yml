@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    links:
+      - mariadb:db
     ports:
       - 3000:3000
   mariadb:

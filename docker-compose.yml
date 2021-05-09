@@ -14,6 +14,8 @@ services:
     environment:
       MYSQL_DATABASE: bike_rental
       MYSQL_ROOT_PASSWORD: fishy
+    ports:
+      - 3306:3306
     
 volumes:
   bike_rental:

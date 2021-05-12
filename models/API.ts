@@ -12,5 +12,5 @@ export interface ReturnBike {
     id: number,
 
     // Data should be hexed for transport
-    encrypted_data: string,
+    //encrypted_data: string,
 }

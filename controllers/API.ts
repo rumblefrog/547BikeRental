@@ -18,6 +18,9 @@ export default class API {
     public static async return_bike(req: Request, res: Response) {
         let payload: ReturnBike = req.body;
 
+        let [ err, _ ] = await to(Rental.endRental(payload.id));
+
+        return res.json({ success: !err});
         
     }
 }

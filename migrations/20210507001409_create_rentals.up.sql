@@ -13,10 +13,10 @@ CREATE TABLE rentals (
     -- Duration of the rental in seconds.
     duration INT UNSIGNED NOT NULL,
 
-    -- Time it in which the rental started
+    -- Time in which the rental started
     rental_start TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    -- Time it in which rental was returned/completed.
+    -- Time in which rental was returned/completed.
     -- Null if never returned.
     rental_end TIMESTAMP NULL,
 
